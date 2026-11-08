@@ -1,0 +1,62 @@
+{
+  "info": {
+    "_postman_id": "12259c15-7945-4128-8af5-887f539634ee",
+    "name": "Perf Testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24637209"
+  },
+  "item": [
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"customer_name\":\"Harry\",\r\n    \"last_name\":\"Potter\",\r\n    \"email\":\"hp@hogwarts.com\",\r\n    \"address\":\"23 Privet Dr\",\r\n    \"item_qty\":\"{Lamy Pen: 1, Dimine Ink 30ml: 2, Notebook: 5}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/create",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "create"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/get?orderId=bc5d95cf-c978-4805-85fd-9e482f2a408f",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "get"
+          ],
+          "query": [
+            {
+              "key": "orderId",
+              "value": "bc5d95cf-c978-4805-85fd-9e482f2a408f"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
