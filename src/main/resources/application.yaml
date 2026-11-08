@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: jmeterTest
+  jpa:
+    data-base-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        jdbc:
+         batch_size: 50
+        order_inserts: true
+        order_updates: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+  lifecycle:
+    timeout-per-shutdown-phase: "5s"
+server:
+  shutdown: "graceful"
+
+management:
+  endpoints:
+    web:
+     exposure:
+      include: "prometheus"
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: "true"
+      slo:
+        http:
+          server:
+            requests: "125ms, 250ms, 500ms, 750ms, 1000ms"
+      minimum-expected-value:
+        http:
+          server:
+            requests: "125ms"
+      maximum-expected-value:
+        http:
+          server:
+            requests: "1500ms"

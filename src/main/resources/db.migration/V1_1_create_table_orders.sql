@@ -1,0 +1,2 @@
+create table if not exists orders(record_no INT GENERATED ALWAYS AS IDENTITY, order_id UUID PRIMARY KEY NOT NULL, customer_name VARCHAR(128) NOT NULL,
+last_name VARCHAR(128) NOT NULL, email VARCHAR(128) NOT NULL, address VARCHAR(128) NOT NULL, item_qty VARCHAR(250) NOT NULL, created_ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
